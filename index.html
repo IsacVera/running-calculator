@@ -10,24 +10,29 @@
   <body>
       <h1>Running Calculator</h1>
       <div>
+          <button id='paceButton'>Pace</button>
+          <button id='distanceButton'>Distance</button>
+          <button id='timeButton'>Time</button>
+      </div>
+      <div>
           <div>
               <h2>Distance</h2>
-              <select name="measurements" id="measurements">
+              <select id='measurement' name="distance">
                   <option value="miles">Miles</option>
                   <option value="kilometers">Kilometers</option>
               </select>
           </div>
-          <input type="text"></input>
+          <input id='distanceInput' type="text"></input>
       </div>
       <div>
           <h2>Pace</h2>
-          <input type="text"></input>
+          <input id='paceInput' type="text"></input>
       </div>
       <div>
           <h2>Time</h2>
-          <input type="text"></input>
+          <input id='timeInput' type="text" value='00:00:00'></input>
       </div>
-      <button id="submit">Submit</button>
+      <button id="submitInput">Submit</button>
 	<script src="index.js"></script>
   </body>
 </html>
