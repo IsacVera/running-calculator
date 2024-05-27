@@ -56,17 +56,12 @@ function timeToSeconds(timeString) {
 }
 
 
-function calculatePace(time, distance) {
-    secondsPace = time/distance;
-    console.log(secondsPace)
+function secondsToTime(seconds) {
+    hours = Math.floor(seconds/3600);
+    seconds = seconds % 3600;
 
-    hours = Math.floor(secondsPace/3600);
-    secondsPace = secondsPace % 3600;
-
-    minutes = Math.floor(secondsPace/60);
-    secondsPace = secondsPace % 60;
-
-    seconds = secondsPace
+    minutes = Math.floor(seconds/60);
+    seconds = seconds % 60;
 
     hoursString = hours.toString()
     minutesString = minutes.toString()
@@ -84,10 +79,36 @@ function calculatePace(time, distance) {
         secondsString = "0" + secondsString;
     }
 
-    paceString = `${hoursString}:${minutesString}:${secondsString}`
+    secondsString = `${hoursString}:${minutesString}:${secondsString}`
 
+    return secondsString;
+}
+
+
+function calculatePace(time, distance) {
+    secondsPace = time/distance;
+
+    paceString = secondsToTime(secondsPace);
     return paceString;
 }
+
+
+function calculateTime(pace, distance) {
+    secondsTime = pace * distance;
+
+    timeString = secondsToTime(secondsTime);
+    return timeString
+}
+
+
+function calculateDistance(time, pace) {
+    console.log(time)
+    console.log(pace)
+    distance = time/pace;
+
+    distance = Math.floor(distance*100000)/100000
+    return distance
+    }
 
 
 submitButton.addEventListener('click', function(event) {
@@ -99,13 +120,21 @@ submitButton.addEventListener('click', function(event) {
 
         console.log(paceString)
     }
-
-
     else if (calculatorSetting === "distance") {
+        time = timeToSeconds(timeInput.value);
+        pace = timeToSeconds(paceInput.value);
+
+        distance = calculateDistance(time, pace);
+
     }
 
     else if (calculatorSetting === "time") {
+        pace = timeToSeconds(paceInput.value);
+        distance = Number(distanceInput.value);
 
+        timeString = calculateTime(pace, distance);
+
+        console.log(timeString)
     }
     
 })
