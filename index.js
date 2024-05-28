@@ -118,8 +118,16 @@ function calculateDistance(time, pace) {
     return distance
     }
 
+/**
+distanceEvent.addEventListener('change', function() {
+    race = distanceEvent.value
 
-submitButton.addEventListener('click', function(event) {
+    console.log(race)
+})
+**/
+
+
+submitButton.addEventListener('click', function() {
     if (calculatorSetting === "pace") {
         let distanceInput = document.querySelector('#distanceInput')
         let timeInput = document.querySelector('#timeInput')

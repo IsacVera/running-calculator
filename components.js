@@ -9,22 +9,55 @@ let distanceSection = document.createElement('div')
 let distanceHeader = document.createElement('h2')
 distanceHeader.innerHTML = 'Distance';
 let distanceInputSection = document.createElement('div')
-let distanceSelect = document.createElement('select')
-distanceSelect.id = 'distanceMeasurement';
+let distanceMeasurement = document.createElement('select')
+distanceMeasurement.id = 'distanceMeasurement';
 let distanceMilesOption = document.createElement('option')
 distanceMilesOption.value = 'miles';
 distanceMilesOption.innerHTML = 'Miles';
 let distanceKilometersOption = document.createElement('option')
 distanceKilometersOption.value = 'kilometers';
 distanceKilometersOption.innerHTML = 'Kilometers';
-distanceSelect.appendChild(distanceMilesOption);
-distanceSelect.appendChild(distanceKilometersOption);
+distanceMeasurement.appendChild(distanceMilesOption);
+distanceMeasurement.appendChild(distanceKilometersOption);
+
+let distanceEvent = document.createElement('select')
+distanceEvent.id = 'distanceEvent';
+let defaultEvent = document.createElement('option')
+defaultEvent.value = 'default';
+defaultEvent.innerHTML = '-- Or pick an event --';
+let marathonEvent = document.createElement('option')
+marathonEvent.value = 'marathon';
+marathonEvent.innerHTML = 'Marathon';
+let halfMarathonEvent = document.createElement('option')
+halfMarathonEvent.value = 'halfMarathon';
+halfMarathonEvent.innerHTML = 'Half Marathon';
+let tenKEvent = document.createElement('option')
+tenKEvent.value = 'tenK';
+tenKEvent.innerHTML = '10K';
+let fiveKEvent = document.createElement('option')
+fiveKEvent.value = 'fiveK';
+fiveKEvent.innerHTML = '5K';
+let fifteenHundredEvent = document.createElement('option')
+fifteenHundredEvent.value = '1500';
+fifteenHundredEvent.innerHTML = '1500';
+let eightHundredEvent = document.createElement('option')
+eightHundredEvent.value = '800';
+eightHundredEvent.innerHTML = '800';
+distanceEvent.appendChild(defaultEvent);
+distanceEvent.appendChild(marathonEvent);
+distanceEvent.appendChild(halfMarathonEvent);
+distanceEvent.appendChild(tenKEvent);
+distanceEvent.appendChild(fiveKEvent);
+distanceEvent.appendChild(fifteenHundredEvent);
+distanceEvent.appendChild(eightHundredEvent);
+
 let distanceInputElement = document.createElement('input')
 distanceInputElement.id = 'distanceInput';
 distanceInputElement.type = 'text';
 
 distanceInputSection.appendChild(distanceInputElement);
-distanceInputSection.appendChild(distanceSelect);
+distanceInputSection.appendChild(distanceMeasurement);
+distanceInputSection.appendChild(distanceEvent);
 
 distanceSection.appendChild(distanceHeader);
 distanceSection.appendChild(distanceInputSection);
@@ -35,16 +68,16 @@ let paceSection = document.createElement('div')
 let paceHeader = document.createElement('h2')
 paceHeader.innerHTML = 'Pace';
 let paceInputSection = document.createElement('div')
-let paceSelect = document.createElement('select')
-paceSelect.id = 'paceMeasurement';
+let paceMeasurment = document.createElement('select')
+paceMeasurment.id = 'paceMeasurement';
 let paceMilesOption = document.createElement('option')
 paceMilesOption.value = 'perMile';
 paceMilesOption.innerHTML = 'Per Mile';
 let paceKilometersOption = document.createElement('option')
 paceKilometersOption.value = 'perKilometer';
 paceKilometersOption.innerHTML = 'Per Kilometer';
-paceSelect.appendChild(paceMilesOption);
-paceSelect.appendChild(paceKilometersOption);
+paceMeasurment.appendChild(paceMilesOption);
+paceMeasurment.appendChild(paceKilometersOption);
 let paceInputElement = document.createElement('input')
 paceInputElement.id = 'paceInput';
 paceInputElement.type = 'text';
@@ -53,7 +86,7 @@ let paceFormat = document.createElement('p')
 paceFormat.innerHTML = 'hh:mm:ss'
 
 paceInputSection.appendChild(paceInputElement);
-paceInputSection.appendChild(paceSelect);
+paceInputSection.appendChild(paceMeasurment);
 paceInputSection.appendChild(paceFormat);
 
 paceSection.appendChild(paceHeader);
