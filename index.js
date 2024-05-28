@@ -34,6 +34,52 @@ timeButton.addEventListener('click', function() {
 submitButton = document.querySelector('#submitInput')
 
 
+function distanceMeasureEventChangeHandler() {
+    unit = measurement.value 
+    race = distanceEvent.value
+
+    if (unit == 'miles') {
+        if (race == 'marathon') {
+            distanceInputElement.value = '26.219';
+        } else if (race == 'halfMarathon') {
+            distanceInputElement.value = '13.1095';
+        } else if (race == 'tenK') {
+            distanceInputElement.value = '6.2137';
+        } else if (race == 'fiveK') {
+            distanceInputElement.value = '3.1069';
+        } else if (race == '1500') {
+            distanceInputElement.value = '0.932';
+        } else if (race == '800') {
+            distanceInputElement.value = '0.497';
+        }
+    }
+
+    if (unit == 'kilometers') {
+        if (race == 'marathon') {
+            distanceInputElement.value = '42.195';
+        } else if (race == 'halfMarathon') {
+            distanceInputElement.value = '21.0975';
+        } else if (race == 'tenK') {
+            distanceInputElement.value = '10';
+        } else if (race == 'fiveK') {
+            distanceInputElement.value = '5';
+        } else if (race == '1500') {
+            distanceInputElement.value = '1.5';
+        } else if (race == '800') {
+            distanceInputElement.value = '0.8';
+        }
+    }
+}
+
+distanceMeasurement.addEventListener('change', function() {
+    distanceMeasureEventChangeHandler();
+})
+
+distanceEvent.addEventListener('change', function() {
+    distanceMeasureEventChangeHandler();
+})
+
+
 function timeToSeconds(timeString) {
     let hoursEndPostition = null;
     let minutesEndPosition = null;
@@ -118,13 +164,6 @@ function calculateDistance(time, pace) {
     return distance
     }
 
-/**
-distanceEvent.addEventListener('change', function() {
-    race = distanceEvent.value
-
-    console.log(race)
-})
-**/
 
 
 submitButton.addEventListener('click', function() {
@@ -163,4 +202,4 @@ submitButton.addEventListener('click', function() {
     }
     
 })
-
+    
