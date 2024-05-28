@@ -1,5 +1,5 @@
 let calculatorSetting = "pace"
-let measurement = document.querySelector('#measurement')
+let measurement = document.querySelector('#distanceMeasurement')
 
 paceButton.addEventListener('click', function() {
     calculatorSetting = "pace";
