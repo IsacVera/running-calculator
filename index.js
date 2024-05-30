@@ -31,7 +31,6 @@ timeButton.addEventListener('click', function() {
     menu.appendChild(paceSection);
 })
 
-submitButton = document.querySelector('#submitInput')
 
 
 function distanceMeasureEventChangeHandler() {
@@ -165,6 +164,7 @@ function calculateDistance(time, pace) {
     }
 
 
+submitButton = document.querySelector('#submitInput')
 
 submitButton.addEventListener('click', function() {
     if (calculatorSetting === "pace") {
@@ -202,4 +202,12 @@ submitButton.addEventListener('click', function() {
     }
     
 })
-    
+
+clearButton = document.querySelector('#clearInput')
+
+clearButton.addEventListener('click', function() {
+    distanceInputElement.value = null;
+    paceInputElement.value = '00:00:0';
+    timeInputElement.value = '00:00:0';
+    distanceEvent.value = 'default';
+})
