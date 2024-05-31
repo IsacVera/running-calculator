@@ -1,5 +1,4 @@
 let calculatorSetting = "pace"
-let measurement = document.querySelector('#distanceMeasurement')
 
 paceButton.addEventListener('click', function() {
     calculatorSetting = "pace";
@@ -34,7 +33,7 @@ timeButton.addEventListener('click', function() {
 
 
 function distanceMeasureEventChangeHandler() {
-    unit = measurement.value 
+    unit = distanceMeasurement.value 
     race = distanceEvent.value
 
     if (unit == 'miles') {
@@ -142,7 +141,7 @@ function secondsToTime(seconds) {
 
 function calculatePace(time, distance) {
     let milesDistance, kilometersDistance, metersDistance;
-    unit = measurement.value;
+    let unit = distanceMeasurement.value;
 
     if (unit == 'miles') {
         milesDistance = distance;
@@ -155,9 +154,6 @@ function calculatePace(time, distance) {
         metersDistance = kilometersDistance * 1000;
     }
 
-    console.log('kilometers', kilometersDistance)
-    console.log('meters', metersDistance)
-
     secondsPerMile = time/milesDistance;
     secondsPerKilometer = time/kilometersDistance;
     milesPerHour = 3600/secondsPerMile;
@@ -166,7 +162,6 @@ function calculatePace(time, distance) {
     metersPerSecond = metersDistance/time;
     metersPerMinute = metersPerSecond * 60;
 
-
     console.log(secondsToTime(secondsPerMile), 'per mile')
     console.log(secondsToTime(secondsPerKilometer), 'per kilometer')
     console.log('miles per hour', milesPerHour)
@@ -174,12 +169,23 @@ function calculatePace(time, distance) {
     console.log(metersPerMinute, 'meters/minute')
     console.log(metersPerSecond, 'meter/second')
 
-
     //return ;
 }
 
 
 function calculateTime(pace, distance) {
+    let distanceUnit = distanceMeasurement.value;
+    let paceUnit = paceMeasurement.value;
+
+    if ((distanceUnit == 'miles') && (paceUnit == 'perKilometer')) {
+        milesDistance = distance;
+        distance = milesDistance * 1.609344;
+
+    } else if ((distanceUnit == 'kilometers') && (paceUnit == 'perMile')) {
+        kilometersDistance = distance;
+        distance = kilometersDistance * 0.6213712;
+    }
+
     secondsTime = pace * distance;
 
     timeString = secondsToTime(secondsTime);

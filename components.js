@@ -68,16 +68,16 @@ let paceSection = document.createElement('div')
 let paceHeader = document.createElement('h2')
 paceHeader.innerHTML = 'Pace';
 let paceInputSection = document.createElement('div')
-let paceMeasurment = document.createElement('select')
-paceMeasurment.id = 'paceMeasurement';
+let paceMeasurement = document.createElement('select')
+paceMeasurement.id = 'paceMeasurement';
 let paceMilesOption = document.createElement('option')
 paceMilesOption.value = 'perMile';
 paceMilesOption.innerHTML = 'Per Mile';
 let paceKilometersOption = document.createElement('option')
 paceKilometersOption.value = 'perKilometer';
 paceKilometersOption.innerHTML = 'Per Kilometer';
-paceMeasurment.appendChild(paceMilesOption);
-paceMeasurment.appendChild(paceKilometersOption);
+paceMeasurement.appendChild(paceMilesOption);
+paceMeasurement.appendChild(paceKilometersOption);
 let paceInputElement = document.createElement('input')
 paceInputElement.id = 'paceInput';
 paceInputElement.type = 'text';
@@ -86,7 +86,7 @@ let paceFormat = document.createElement('p')
 paceFormat.innerHTML = 'hh:mm:ss'
 
 paceInputSection.appendChild(paceInputElement);
-paceInputSection.appendChild(paceMeasurment);
+paceInputSection.appendChild(paceMeasurement);
 paceInputSection.appendChild(paceFormat);
 
 paceSection.appendChild(paceHeader);
