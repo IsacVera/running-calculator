@@ -141,10 +141,41 @@ function secondsToTime(seconds) {
 
 
 function calculatePace(time, distance) {
-    secondsPace = time/distance;
+    let milesDistance, kilometersDistance, metersDistance;
+    unit = measurement.value;
 
-    paceString = secondsToTime(secondsPace);
-    return paceString;
+    if (unit == 'miles') {
+        milesDistance = distance;
+        kilometersDistance = milesDistance * 1.609344;
+        metersDistance = kilometersDistance * 1000;
+    } else if (unit == 'kilometers') {
+        kilometersDistance = distance;
+        milesDistance = kilometersDistance * 0.6213712;
+        console.log(milesDistance)
+        metersDistance = kilometersDistance * 1000;
+    }
+
+    console.log('kilometers', kilometersDistance)
+    console.log('meters', metersDistance)
+
+    secondsPerMile = time/milesDistance;
+    secondsPerKilometer = time/kilometersDistance;
+    milesPerHour = 3600/secondsPerMile;
+    kilometersPerHour = 3600/secondsPerKilometer;
+
+    metersPerSecond = metersDistance/time;
+    metersPerMinute = metersPerSecond * 60;
+
+
+    console.log(secondsToTime(secondsPerMile), 'per mile')
+    console.log(secondsToTime(secondsPerKilometer), 'per kilometer')
+    console.log('miles per hour', milesPerHour)
+    console.log('kilometers per hour', kilometersPerHour)
+    console.log(metersPerMinute, 'meters/minute')
+    console.log(metersPerSecond, 'meter/second')
+
+
+    //return ;
 }
 
 
@@ -174,9 +205,8 @@ submitButton.addEventListener('click', function() {
         time = timeToSeconds(timeInput.value);
         distance = Number(distanceInput.value);
 
-        paceString = calculatePace(time, distance);
+        calculatePace(time, distance);
 
-        console.log(paceString)
     }
     else if (calculatorSetting === "distance") {
         let paceInput = document.querySelector('#paceInput')
@@ -211,3 +241,4 @@ clearButton.addEventListener('click', function() {
     timeInputElement.value = '00:00:0';
     distanceEvent.value = 'default';
 })
+
