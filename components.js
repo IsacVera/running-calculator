@@ -1,3 +1,5 @@
+let body = document.body
+
 let paceButton = document.querySelector('#paceButton')
 let distanceButton = document.querySelector('#distanceButton')
 let timeButton = document.querySelector('#timeButton')
@@ -110,6 +112,16 @@ timeInputSection.appendChild(timeFormat);
 
 timeSection.appendChild(timeHeader);
 timeSection.appendChild(timeInputSection);
+
+//creating results section of the menu
+let resultsSection = document.createElement('div')
+let resultsHeader = document.createElement('h2')
+resultsHeader.innerHTML = 'Results';
+let results = document.createElement('div')
+results.id = 'results';
+
+resultsSection.appendChild(resultsHeader);
+resultsSection.appendChild(results);
 
 
 //Default Menu

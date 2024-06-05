@@ -169,7 +169,19 @@ function calculatePace(time, distance) {
     console.log(metersPerMinute, 'meters/minute')
     console.log(metersPerSecond, 'meter/second')
 
-    //return ;
+
+    let paceOutput = {
+        'secondsPerMile': secondsPerMile,
+        'secondsPerKilometer': secondsPerKilometer,
+        'milesPerHour': milesPerHour,
+        'kilometersPerHour': kilometersPerHour,
+        'metersPerMinute': metersPerMinute,
+        'metersPerSecond': metersPerSecond,
+    };
+
+    console.log(paceOutput)
+
+    return paceOutput;
 }
 
 
@@ -227,7 +239,13 @@ function calculateDistance(time, pace) {
 
     //distance = Math.floor(distance*100000)/100000
     //return distance
-    }
+}
+
+
+function showResults(output) {
+    results.innerHTML = output; 
+    body.appendChild(resultsSection)
+}
 
 
 submitButton = document.querySelector('#submitInput')
@@ -240,7 +258,11 @@ submitButton.addEventListener('click', function() {
         time = timeToSeconds(timeInput.value);
         distance = Number(distanceInput.value);
 
-        calculatePace(time, distance);
+        let paces = calculatePace(time, distance);
+
+        resultsString = `Pace in different units:<br>${secondsToTime(paces.secondsPerMile)} per mile<br>${secondsToTime(paces.secondsPerKilometer)} per kilometer<br>${paces.milesPerHour} miles/hour<br>${paces.kilometersPerHour} kilometers/hour<br>${paces.metersPerMinute} meters/minute<br>${paces.metersPerSecond} meters/second`
+
+        showResults(resultsString)
 
     }
     else if (calculatorSetting === "distance") {
