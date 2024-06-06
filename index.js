@@ -299,5 +299,8 @@ clearButton.addEventListener('click', function() {
     paceInputElement.value = '00:00:0';
     timeInputElement.value = '00:00:0';
     distanceEvent.value = 'default';
+    if (body.lastChild === resultsSection) {
+        body.removeChild(body.lastChild);
+    }
 })
 
