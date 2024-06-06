@@ -287,7 +287,7 @@ submitButton.addEventListener('click', function() {
 
         timeString = calculateTime(pace, distance);
 
-        console.log(timeString)
+        showResults(`With the given distance and pace, the time required will be: ${timeString}`)
     }
     
 })
