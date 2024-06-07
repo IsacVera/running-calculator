@@ -133,18 +133,18 @@ function secondsToTime(seconds) {
         secondsString = "0" + secondsString;
     }
 
-    secondsString = `${hoursString}:${minutesString}:${secondsString}`
+    timeString = `${hoursString}:${minutesString}:${secondsString}`
 
-    return secondsString;
+    return timeString;
 }
 
 
-function formatNumberDecimal(num) {
+function formatNumber(num) {
     return Math.floor(num*1000)/1000;
 }
 
 
-function formatTimeDecimal(time) {
+function formatTime(time) {
     let decimalCounter = 0;
     for (let i=0; i<time.length; i++) {
         if (time[i] === '.') {
@@ -163,7 +163,7 @@ function formatTimeDecimal(time) {
             endDecimalCounter = (decimalCounter+1) + 1;
         }
     }
-    time = time.slice(0, endDecimalCounter)
+    time = time.slice(0, endDecimalCounter);
 
     let endZeros = 0;
     for (let i=0; i<3; i++) {
@@ -175,7 +175,22 @@ function formatTimeDecimal(time) {
     }
     time = time.slice(0, time.length-endZeros);
 
-    return time;
+    timeSegments = time.split(":");
+    
+    for (let i=0; i<timeSegments.length; i++) {
+        timeSegments[i] = Number(timeSegments[i]);
+    }
+
+    timeOutput = '';
+    if (timeSegments[0] > 0) {
+        timeOutput = `${timeOutput} ${timeSegments[0]} hours`;
+    } if (timeSegments[1] > 0) {
+        timeOutput = `${timeOutput} ${timeSegments[1]} minutes`;
+    } if (timeSegments[2] > 0) {
+        timeOutput = `${timeOutput} ${timeSegments[2]} seconds`;
+    }
+
+    return timeOutput;
 }
 
 
@@ -201,10 +216,10 @@ function calculatePace(time, distance) {
     metersPerSecond = metersDistance/time;
     metersPerMinute = metersPerSecond * 60;
 
-    milesPerHour = formatNumberDecimal(milesPerHour)
-    kilometersPerHour = formatNumberDecimal(kilometersPerHour)
-    metersPerSecond = formatNumberDecimal(metersPerSecond)
-    metersPerMinute = formatNumberDecimal(metersPerMinute)
+    milesPerHour = formatNumber(milesPerHour)
+    kilometersPerHour = formatNumber(kilometersPerHour)
+    metersPerSecond = formatNumber(metersPerSecond)
+    metersPerMinute = formatNumber(metersPerMinute)
 
     let paceOutput = {
         'secondsPerMile': secondsPerMile,
@@ -261,10 +276,10 @@ function calculateDistance(time, pace) {
     meterDistance = time/meterPace;
     yardDistance = time/yardPace;
 
-    mileDistance = formatNumberDecimal(mileDistance);
-    kilometerDistance = formatNumberDecimal(kilometerDistance);
-    meterDistance = formatNumberDecimal(meterDistance);
-    yardDistance = formatNumberDecimal(yardDistance);
+    mileDistance = formatNumber(mileDistance);
+    kilometerDistance = formatNumber(kilometerDistance);
+    meterDistance = formatNumber(meterDistance);
+    yardDistance = formatNumber(yardDistance);
 
     distances = {
         'miles': mileDistance,
@@ -295,8 +310,8 @@ submitButton.addEventListener('click', function() {
 
         let paces = calculatePace(time, distance);
 
-        timePerMile = formatTimeDecimal(secondsToTime(paces.secondsPerMile))
-        timePerKilometer = formatTimeDecimal(secondsToTime(paces.secondsPerKilometer))
+        timePerMile = formatTime(secondsToTime(paces.secondsPerMile))
+        timePerKilometer = formatTime(secondsToTime(paces.secondsPerKilometer))
 
         resultsString = `Pace in different units:<br>${timePerMile} per mile<br>${timePerKilometer} per kilometer<br>${paces.milesPerHour} miles/hour<br>${paces.kilometersPerHour} kilometers/hour<br>${paces.metersPerMinute} meters/minute<br>${paces.metersPerSecond} meters/second`
 
@@ -327,7 +342,7 @@ submitButton.addEventListener('click', function() {
 
         timeString = calculateTime(pace, distance);
 
-        timeString = formatTimeDecimal(timeString)
+        timeString = formatTime(timeString)
 
         showResults(`With the given distance and pace, the time required will be: ${timeString}`);
     }
