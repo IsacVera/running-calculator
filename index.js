@@ -139,6 +139,46 @@ function secondsToTime(seconds) {
 }
 
 
+function formatNumberDecimal(num) {
+    return Math.floor(num*1000)/1000;
+}
+
+
+function formatTimeDecimal(time) {
+    let decimalCounter = 0;
+    for (let i=0; i<time.length; i++) {
+        if (time[i] === '.') {
+            break;
+        }
+        decimalCounter++
+    }
+
+    let endDecimalCounter = 0;
+    if ((time.length - decimalCounter) > 0) {
+        if ((time.length - decimalCounter) > 2) {
+            endDecimalCounter = (decimalCounter+1) + 3;
+        } else if ((time.length - decimalCounter) > 1) {
+            endDecimalCounter = (decimalCounter+1) + 2;
+        } else {
+            endDecimalCounter = (decimalCounter+1) + 1;
+        }
+    }
+    time = time.slice(0, endDecimalCounter)
+
+    let endZeros = 0;
+    for (let i=0; i<3; i++) {
+        if (time[time.length-i-1] === '0') {
+            endZeros++;
+        } else{
+            break;
+        }
+    }
+    time = time.slice(0, time.length-endZeros);
+
+    return time;
+}
+
+
 function calculatePace(time, distance) {
     let milesDistance, kilometersDistance, metersDistance;
     let unit = distanceMeasurement.value;
@@ -150,7 +190,6 @@ function calculatePace(time, distance) {
     } else if (unit == 'kilometers') {
         kilometersDistance = distance;
         milesDistance = kilometersDistance * 0.6213712;
-        console.log(milesDistance)
         metersDistance = kilometersDistance * 1000;
     }
 
@@ -161,6 +200,11 @@ function calculatePace(time, distance) {
 
     metersPerSecond = metersDistance/time;
     metersPerMinute = metersPerSecond * 60;
+
+    milesPerHour = formatNumberDecimal(milesPerHour)
+    kilometersPerHour = formatNumberDecimal(kilometersPerHour)
+    metersPerSecond = formatNumberDecimal(metersPerSecond)
+    metersPerMinute = formatNumberDecimal(metersPerMinute)
 
     let paceOutput = {
         'secondsPerMile': secondsPerMile,
@@ -200,7 +244,6 @@ function calculateDistance(time, pace) {
     let milePace, kilometerPace, meterPace, yardPace = null;
     let mileDistance, kilometerDistance, meterDistance, yardDistance = null;
     unit = paceMeasurement.value;
-    console.log(unit)
 
     if (unit == 'perMile') {
         milePace = pace;
@@ -218,6 +261,11 @@ function calculateDistance(time, pace) {
     meterDistance = time/meterPace;
     yardDistance = time/yardPace;
 
+    mileDistance = formatNumberDecimal(mileDistance);
+    kilometerDistance = formatNumberDecimal(kilometerDistance);
+    meterDistance = formatNumberDecimal(meterDistance);
+    yardDistance = formatNumberDecimal(yardDistance);
+
     distances = {
         'miles': mileDistance,
         'kilometers': kilometerDistance,
@@ -225,7 +273,6 @@ function calculateDistance(time, pace) {
         'yards': yardDistance,
     }
 
-    //distance = Math.floor(distance*100000)/100000
     return distances
 }
 
@@ -248,7 +295,10 @@ submitButton.addEventListener('click', function() {
 
         let paces = calculatePace(time, distance);
 
-        resultsString = `Pace in different units:<br>${secondsToTime(paces.secondsPerMile)} per mile<br>${secondsToTime(paces.secondsPerKilometer)} per kilometer<br>${paces.milesPerHour} miles/hour<br>${paces.kilometersPerHour} kilometers/hour<br>${paces.metersPerMinute} meters/minute<br>${paces.metersPerSecond} meters/second`
+        timePerMile = formatTimeDecimal(secondsToTime(paces.secondsPerMile))
+        timePerKilometer = formatTimeDecimal(secondsToTime(paces.secondsPerKilometer))
+
+        resultsString = `Pace in different units:<br>${timePerMile} per mile<br>${timePerKilometer} per kilometer<br>${paces.milesPerHour} miles/hour<br>${paces.kilometersPerHour} kilometers/hour<br>${paces.metersPerMinute} meters/minute<br>${paces.metersPerSecond} meters/second`
 
         showResults(resultsString);
 
@@ -276,6 +326,8 @@ submitButton.addEventListener('click', function() {
         distance = Number(distanceInput.value);
 
         timeString = calculateTime(pace, distance);
+
+        timeString = formatTimeDecimal(timeString)
 
         showResults(`With the given distance and pace, the time required will be: ${timeString}`);
     }
