@@ -17,3 +17,24 @@ body {
     margin: 0;
     padding-bottom: 1rem;
 }
+
+.inputHeader {
+    margin: 0;
+    font-size: 1.25rem;
+
+}
+
+.breakLine {
+    max-height: 0px;
+}
+
+.inputForm {
+    padding: 1rem;
+    background-color: #eeeeee;
+    border-radius: 10px;
+}
+
+.inputSection {
+    align-items: center;
+    height: 2rem;
+}

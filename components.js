@@ -4,13 +4,18 @@ let paceButton = document.querySelector('#paceButton')
 let distanceButton = document.querySelector('#distanceButton')
 let timeButton = document.querySelector('#timeButton')
 
-let menu = document.querySelector('#menu');
+let menu = document.querySelector('#inputUnits');
+
+let breakLine = document.createElement('br');
+breakLine.className = 'breakLine';
 
 //creating distance section of menu
 let distanceSection = document.createElement('div') 
 let distanceHeader = document.createElement('h2')
 distanceHeader.innerHTML = 'Distance';
+distanceHeader.className = 'inputHeader';
 let distanceInputSection = document.createElement('div')
+distanceInputSection.className = 'inputSection'
 let distanceMeasurement = document.createElement('select')
 distanceMeasurement.id = 'distanceMeasurement';
 let distanceMilesOption = document.createElement('option')
@@ -69,7 +74,9 @@ distanceSection.appendChild(distanceInputSection);
 let paceSection = document.createElement('div')
 let paceHeader = document.createElement('h2')
 paceHeader.innerHTML = 'Pace';
+paceHeader.className = 'inputHeader';
 let paceInputSection = document.createElement('div')
+paceInputSection.className = 'inputSection'
 let paceMeasurement = document.createElement('select')
 paceMeasurement.id = 'paceMeasurement';
 let paceMilesOption = document.createElement('option')
@@ -84,7 +91,7 @@ let paceInputElement = document.createElement('input')
 paceInputElement.id = 'paceInput';
 paceInputElement.type = 'text';
 paceInputElement.value = '00:00:0';
-let paceFormat = document.createElement('p')
+let paceFormat = document.createElement('span')
 paceFormat.innerHTML = 'hh:mm:ss'
 
 paceInputSection.appendChild(paceInputElement);
@@ -99,12 +106,14 @@ paceSection.appendChild(paceInputSection);
 let timeSection = document.createElement('div')
 let timeHeader = document.createElement('h2')
 timeHeader.innerHTML = 'Time';
+timeHeader.className = 'inputHeader';
 let timeInputSection = document.createElement('div')
+timeInputSection.className = 'inputSection'
 let timeInputElement = document.createElement('input')
 timeInputElement.id = 'timeInput';
 timeInputElement.type = 'text';
 timeInputElement.value = '00:00:0';
-let timeFormat = document.createElement('p')
+let timeFormat = document.createElement('span')
 timeFormat.innerHTML = 'hh:mm:ss'
 
 timeInputSection.appendChild(timeInputElement);
@@ -126,5 +135,6 @@ resultsSection.appendChild(results);
 
 //Default Menu
 menu.appendChild(timeSection);
+menu.appendChild(breakLine);
 menu.appendChild(distanceSection);
 
