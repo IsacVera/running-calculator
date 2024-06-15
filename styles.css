@@ -24,8 +24,8 @@ body {
 
 }
 
-.breakLine {
-    max-height: 0px;
+.spaceLine {
+    height: 10px;
 }
 
 .inputForm {

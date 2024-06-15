@@ -7,7 +7,7 @@ paceButton.addEventListener('click', function() {
         menu.removeChild(menu.lastChild)
     }
     menu.appendChild(timeSection);
-    menu.appendChild(breakLine);
+    menu.appendChild(spaceLine);
     menu.appendChild(distanceSection);
 })
 
@@ -18,7 +18,7 @@ distanceButton.addEventListener('click', function() {
         menu.removeChild(menu.lastChild)
     }
     menu.appendChild(timeSection);
-    menu.appendChild(breakLine);
+    menu.appendChild(spaceLine);
     menu.appendChild(paceSection);
 })
 
@@ -29,7 +29,7 @@ timeButton.addEventListener('click', function() {
         menu.removeChild(menu.lastChild)
     }
     menu.appendChild(distanceSection);
-    menu.appendChild(breakLine);
+    menu.appendChild(spaceLine);
     menu.appendChild(paceSection);
 })
 

@@ -6,8 +6,8 @@ let timeButton = document.querySelector('#timeButton')
 
 let menu = document.querySelector('#inputUnits');
 
-let breakLine = document.createElement('br');
-breakLine.className = 'breakLine';
+let spaceLine = document.createElement('div');
+spaceLine.className = 'spaceLine';
 
 //creating distance section of menu
 let distanceSection = document.createElement('div') 
@@ -135,6 +135,6 @@ resultsSection.appendChild(results);
 
 //Default Menu
 menu.appendChild(timeSection);
-menu.appendChild(breakLine);
+menu.appendChild(spaceLine);
 menu.appendChild(distanceSection);
 
