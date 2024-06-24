@@ -9,6 +9,8 @@ paceButton.addEventListener('click', function() {
     menu.appendChild(timeSection);
     menu.appendChild(spaceLine);
     menu.appendChild(distanceSection);
+    menu.appendChild(submitButton);
+    menu.appendChild(clearButton);
 })
 
 distanceButton.addEventListener('click', function() {
@@ -20,6 +22,8 @@ distanceButton.addEventListener('click', function() {
     menu.appendChild(timeSection);
     menu.appendChild(spaceLine);
     menu.appendChild(paceSection);
+    menu.appendChild(submitButton);
+    menu.appendChild(clearButton);
 })
 
 timeButton.addEventListener('click', function() {
@@ -31,6 +35,8 @@ timeButton.addEventListener('click', function() {
     menu.appendChild(distanceSection);
     menu.appendChild(spaceLine);
     menu.appendChild(paceSection);
+    menu.appendChild(submitButton);
+    menu.appendChild(clearButton);
 })
 
 

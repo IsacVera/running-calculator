@@ -4,6 +4,14 @@ let paceButton = document.querySelector('#paceButton')
 let distanceButton = document.querySelector('#distanceButton')
 let timeButton = document.querySelector('#timeButton')
 
+let submitButton = document.createElement('button')
+submitButton.id = 'submitInput';
+submitButton.innerText = "Submit";
+
+let clearButton = document.createElement('button')
+clearButton.id = 'clearInput';
+clearButton.innerText = "Clear";
+
 let menu = document.querySelector('#inputUnits');
 
 let spaceLine = document.createElement('div');
@@ -137,4 +145,7 @@ resultsSection.appendChild(results);
 menu.appendChild(timeSection);
 menu.appendChild(spaceLine);
 menu.appendChild(distanceSection);
+
+menu.appendChild(submitButton);
+menu.appendChild(clearButton);
 
