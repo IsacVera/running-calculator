@@ -1,8 +1,20 @@
 let body = document.body
 
-let paceButton = document.querySelector('#paceButton')
-let distanceButton = document.querySelector('#distanceButton')
-let timeButton = document.querySelector('#timeButton')
+let formTypeSection = document.createElement('div')
+let paceButton = document.createElement('button')
+paceButton.id = 'paceButton';
+paceButton.innerText = 'Pace';
+let distanceButton = document.createElement('button')
+distanceButton.id = 'distanceButton';
+distanceButton.innerText = 'Distance';
+let timeButton = document.createElement('button')
+timeButton.id = 'timeButton';
+timeButton.innerText = 'Time';
+
+formTypeSection.appendChild(paceButton);
+formTypeSection.appendChild(distanceButton);
+formTypeSection.appendChild(timeButton);
+
 
 let submitButton = document.createElement('button')
 submitButton.id = 'submitInput';
@@ -12,7 +24,7 @@ let clearButton = document.createElement('button')
 clearButton.id = 'clearInput';
 clearButton.innerText = "Clear";
 
-let menu = document.querySelector('#inputUnits');
+let form = document.querySelector('#inputUnits');
 
 let spaceLine = document.createElement('div');
 spaceLine.className = 'spaceLine';
@@ -140,12 +152,13 @@ results.id = 'results';
 resultsSection.appendChild(resultsHeader);
 resultsSection.appendChild(results);
 
-
+let menu = document.querySelector('#menu')
 //Default Menu
-menu.appendChild(timeSection);
-menu.appendChild(spaceLine);
-menu.appendChild(distanceSection);
+menu.insertBefore(formTypeSection, form);
+form.appendChild(timeSection);
+form.appendChild(spaceLine);
+form.appendChild(distanceSection);
 
-menu.appendChild(submitButton);
-menu.appendChild(clearButton);
+form.appendChild(submitButton);
+form.appendChild(clearButton);
 

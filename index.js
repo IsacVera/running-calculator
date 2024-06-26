@@ -3,40 +3,40 @@ let calculatorSetting = "pace"
 paceButton.addEventListener('click', function() {
     calculatorSetting = "pace";
 
-    while (menu.lastChild) {
-        menu.removeChild(menu.lastChild)
+    while (form.lastChild) {
+        form.removeChild(form.lastChild)
     }
-    menu.appendChild(timeSection);
-    menu.appendChild(spaceLine);
-    menu.appendChild(distanceSection);
-    menu.appendChild(submitButton);
-    menu.appendChild(clearButton);
+    form.appendChild(timeSection);
+    form.appendChild(spaceLine);
+    form.appendChild(distanceSection);
+    form.appendChild(submitButton);
+    form.appendChild(clearButton);
 })
 
 distanceButton.addEventListener('click', function() {
     calculatorSetting = "distance";
 
-    while (menu.lastChild) {
-        menu.removeChild(menu.lastChild)
+    while (form.lastChild) {
+        form.removeChild(form.lastChild)
     }
-    menu.appendChild(timeSection);
-    menu.appendChild(spaceLine);
-    menu.appendChild(paceSection);
-    menu.appendChild(submitButton);
-    menu.appendChild(clearButton);
+    form.appendChild(timeSection);
+    form.appendChild(spaceLine);
+    form.appendChild(paceSection);
+    form.appendChild(submitButton);
+    form.appendChild(clearButton);
 })
 
 timeButton.addEventListener('click', function() {
     calculatorSetting = "time";
 
-    while (menu.lastChild) {
-        menu.removeChild(menu.lastChild)
+    while (form.lastChild) {
+        form.removeChild(form.lastChild)
     }
-    menu.appendChild(distanceSection);
-    menu.appendChild(spaceLine);
-    menu.appendChild(paceSection);
-    menu.appendChild(submitButton);
-    menu.appendChild(clearButton);
+    form.appendChild(distanceSection);
+    form.appendChild(spaceLine);
+    form.appendChild(paceSection);
+    form.appendChild(submitButton);
+    form.appendChild(clearButton);
 })
 
 
