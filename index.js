@@ -154,25 +154,25 @@ function formatNumber(num) {
 
 
 function formatTime(time) {
-    let decimalCounter = 0;
+    let countToDecimal = 0;
     for (let i=0; i<time.length; i++) {
         if (time[i] === '.') {
             break;
         }
-        decimalCounter++
+        countToDecimal++
     }
 
-    let endDecimalCounter = 0;
-    if ((time.length - decimalCounter) > 0) {
-        if ((time.length - decimalCounter) > 2) {
-            endDecimalCounter = (decimalCounter+1) + 3;
-        } else if ((time.length - decimalCounter) > 1) {
-            endDecimalCounter = (decimalCounter+1) + 2;
+    let endDecimalNum = 0;
+    if ((time.length - countToDecimal) > 0) {
+        if ((time.length - countToDecimal) > 2) {
+            endDecimalNum = (countToDecimal+1) + 3;
+        } else if ((time.length - countToDecimal) > 1) {
+            endDecimalNum = (countToDecimal+1) + 2;
         } else {
-            endDecimalCounter = (decimalCounter+1) + 1;
+            endDecimalNum = (countToDecimal+1) + 1;
         }
+        time = time.slice(0, endDecimalNum);
     }
-    time = time.slice(0, endDecimalCounter);
 
     let endZeros = 0;
     for (let i=0; i<3; i++) {
