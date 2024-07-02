@@ -1,14 +1,18 @@
 let body = document.body
 
 let formTypeSection = document.createElement('div')
+formTypeSection.className = 'formTypeSection';
 let paceButton = document.createElement('button')
 paceButton.id = 'paceButton';
+paceButton.className = 'formTypeButton';
 paceButton.innerText = 'Pace';
 let distanceButton = document.createElement('button')
 distanceButton.id = 'distanceButton';
+distanceButton.className = 'formTypeButton';
 distanceButton.innerText = 'Distance';
 let timeButton = document.createElement('button')
 timeButton.id = 'timeButton';
+timeButton.className = 'formTypeButton';
 timeButton.innerText = 'Time';
 
 formTypeSection.appendChild(paceButton);

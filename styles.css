@@ -24,10 +24,25 @@ body {
 
 }
 
+.formTypeSection {
+    margin-left: 1rem;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: -1px;
+}
+
+.formTypeButton {
+    background-color: #baff39;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    padding: 0.5rem 0.25rem;
+    cursor: pointer;
+}
+
 .inputForm {
     padding: 1rem;
     background-color: #eeeeee;
     border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
 .inputSection {
