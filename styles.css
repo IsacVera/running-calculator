@@ -49,6 +49,21 @@ body {
     border: 1px solid #ccc;
 }
 
+
 .inputSection {
     margin-bottom: 1rem;
+}
+
+.formButtons {
+    margin-right: .25rem;
+}
+
+#submitInput {
+    background-color: #336699;
+    color: white;
+}
+
+#clearInput {
+    background-color: #ABABAB;
+    color: white;
 }

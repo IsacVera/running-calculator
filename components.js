@@ -22,10 +22,12 @@ formTypeSection.appendChild(timeButton);
 
 let submitButton = document.createElement('button')
 submitButton.id = 'submitInput';
+submitButton.className = 'formButtons';
 submitButton.innerText = "Submit";
 
 let clearButton = document.createElement('button')
 clearButton.id = 'clearInput';
+clearButton.className = 'formButtons';
 clearButton.innerText = "Clear";
 
 let form = document.querySelector('#inputUnits');
