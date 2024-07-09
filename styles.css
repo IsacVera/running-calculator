@@ -65,8 +65,10 @@ body {
 
 #submitInput {
     background-color: #336699;
+    font-size: 1rem;
 }
 
 #clearInput {
     background-color: #ABABAB;
+    font-size: 1rem;
 }
