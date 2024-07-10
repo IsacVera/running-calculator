@@ -3,6 +3,10 @@ let calculatorSetting = "pace"
 paceButton.addEventListener('click', function() {
     calculatorSetting = "pace";
 
+    paceButton.className = 'formTypeButton active';
+    distanceButton.className = 'formTypeButton';
+    timeButton.className = 'formTypeButton';
+
     while (form.lastChild) {
         form.removeChild(form.lastChild)
     }
@@ -16,6 +20,10 @@ paceButton.addEventListener('click', function() {
 distanceButton.addEventListener('click', function() {
     calculatorSetting = "distance";
 
+    paceButton.className = 'formTypeButton';
+    distanceButton.className = 'formTypeButton active';
+    timeButton.className = 'formTypeButton';
+
     while (form.lastChild) {
         form.removeChild(form.lastChild)
     }
@@ -28,6 +36,10 @@ distanceButton.addEventListener('click', function() {
 
 timeButton.addEventListener('click', function() {
     calculatorSetting = "time";
+
+    paceButton.className = 'formTypeButton';
+    distanceButton.className = 'formTypeButton';
+    timeButton.className = 'formTypeButton active';
 
     while (form.lastChild) {
         form.removeChild(form.lastChild)
