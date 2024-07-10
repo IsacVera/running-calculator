@@ -67,8 +67,8 @@ body {
     padding: 0.5rem 1rem;
     border: 0;
     border-radius: 5px;
-
     color: white;
+    cursor: pointer;
 }
 
 #submitInput {
@@ -79,4 +79,12 @@ body {
 #clearInput {
     background-color: #ABABAB;
     font-size: 1rem;
+}
+
+#distanceMeasurement {
+    cursor: pointer;
+}
+
+#distanceEvent {
+    cursor: pointer;
 }
