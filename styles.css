@@ -26,21 +26,25 @@ body {
 
 .formTypeSection {
     margin: 0 1rem;
-    border-bottom: 1px solid #ccc;
     margin-bottom: -1px;
 }
 
 .formTypeButton {
     margin-right: .25rem;
-    margin-bottom: -2px;
+    margin-bottom: -0.5px;
     background-color: #4c7b25;
     color: white;
     font-size: 1.1rem;
     border: 1px solid #ccc;
-    border-radius: 5px 5px 0 0;
     border-bottom: none;
+    border-radius: 5px 5px 0 0;
     padding: 0.5rem 0.25rem;
     cursor: pointer;
+}
+
+.formTypeButton:hover {
+    background-color: #eeeeee;
+    color: #000000;
 }
 
 .formTypeButton.active {
@@ -48,7 +52,6 @@ body {
     color: black;
     font-size: 1.5rem;
     position: relative;
-    bottom: 1px
 }
 
 .inputForm {
@@ -72,6 +75,7 @@ body {
     cursor: pointer;
 }
 
+
 #submitInput {
     background-color: #336699;
     font-size: 1rem;
@@ -80,6 +84,9 @@ body {
 #clearInput {
     background-color: #ABABAB;
     font-size: 1rem;
+}
+#clearInput:hover, #submitInput:hover {
+    background-color: #444;
 }
 
 #distanceMeasurement {
