@@ -18,10 +18,14 @@ body {
     padding-bottom: 1rem;
 }
 
+.inputSpace {
+    margin-right: .3rem
+}
+
+
 .inputHeader {
     margin: 0;
     font-size: 1.25rem;
-
 }
 
 .formTypeSection {

@@ -44,6 +44,7 @@ let distanceInputSection = document.createElement('div')
 distanceInputSection.className = 'inputSection'
 let distanceMeasurement = document.createElement('select')
 distanceMeasurement.id = 'distanceMeasurement';
+distanceMeasurement.className = 'inputSpace';
 let distanceMilesOption = document.createElement('option')
 distanceMilesOption.value = 'miles';
 distanceMilesOption.innerHTML = 'Miles';
@@ -86,6 +87,7 @@ distanceEvent.appendChild(eightHundredEvent);
 
 let distanceInputElement = document.createElement('input')
 distanceInputElement.id = 'distanceInput';
+distanceInputElement.className = 'inputSpace';
 distanceInputElement.type = 'text';
 
 distanceInputSection.appendChild(distanceInputElement);
@@ -105,6 +107,7 @@ let paceInputSection = document.createElement('div')
 paceInputSection.className = 'inputSection'
 let paceMeasurement = document.createElement('select')
 paceMeasurement.id = 'paceMeasurement';
+paceMeasurement.className = 'inputSpace';
 let paceMilesOption = document.createElement('option')
 paceMilesOption.value = 'perMile';
 paceMilesOption.innerHTML = 'Per Mile';
@@ -115,6 +118,7 @@ paceMeasurement.appendChild(paceMilesOption);
 paceMeasurement.appendChild(paceKilometersOption);
 let paceInputElement = document.createElement('input')
 paceInputElement.id = 'paceInput';
+paceInputElement.className = 'inputSpace';
 paceInputElement.type = 'text';
 paceInputElement.value = '00:00:0';
 let paceFormat = document.createElement('span')
@@ -137,6 +141,7 @@ let timeInputSection = document.createElement('div')
 timeInputSection.className = 'inputSection'
 let timeInputElement = document.createElement('input')
 timeInputElement.id = 'timeInput';
+timeInputElement.className='inputSpace';
 timeInputElement.type = 'text';
 timeInputElement.value = '00:00:0';
 let timeFormat = document.createElement('span')
