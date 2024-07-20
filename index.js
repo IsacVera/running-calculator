@@ -313,6 +313,34 @@ function calculateDistance(time, pace) {
 }
 
 
+function verifyTimes(time) {
+    let timeSegments = time.split(":")
+    for (let i=0;i<timeSegments.length;i++){
+        if (typeof(Number(timeSegments[i])) === 'number'
+            && !isNaN(Number(timeSegments[i]))) {
+        } else {
+            return false;
+        }
+    } 
+    return true;
+}
+
+
+function verifyInputs(inputs) {
+    if (calculatorSetting === 'pace') {
+    } else if (calculatorSetting === 'distance') {
+        if (!verifyTimes(inputs.timeInput) || !verifyTimes(inputs.paceInput)) {
+            console.log('false');
+            return false;
+        }
+    } else if (calculatorSetting === 'time') {
+        
+    }
+    console.log('true')
+    return true; 
+}
+
+
 function showResults(output) {
     results.innerHTML = output; 
     menu.appendChild(resultsSection)
@@ -322,10 +350,15 @@ function showResults(output) {
 submitButton = document.querySelector('#submitInput')
 
 submitButton.addEventListener('click', function() {
+    inputs = {
+        timeInput: timeInput.value || null,
+        distanceInput: distanceInput.value || null,
+        paceInput: paceInput.value || null
+    }
+
+    verifyInputs(inputs)
+
     if (calculatorSetting === "pace") {
-        let distanceInput = document.querySelector('#distanceInput')
-        let timeInput = document.querySelector('#timeInput')
-       
         time = timeToSeconds(timeInput.value);
         distance = Number(distanceInput.value);
 
@@ -340,9 +373,6 @@ submitButton.addEventListener('click', function() {
 
     }
     else if (calculatorSetting === "distance") {
-        let paceInput = document.querySelector('#paceInput')
-        let timeInput = document.querySelector('#timeInput')
-
         time = timeToSeconds(timeInput.value);
         pace = timeToSeconds(paceInput.value);
         
@@ -355,9 +385,6 @@ submitButton.addEventListener('click', function() {
     }
 
     else if (calculatorSetting === "time") {
-        let distanceInput = document.querySelector('#distanceInput')
-        let paceInput = document.querySelector('#paceInput')
-
         pace = timeToSeconds(paceInput.value);
         distance = Number(distanceInput.value);
 
@@ -373,9 +400,9 @@ submitButton.addEventListener('click', function() {
 clearButton = document.querySelector('#clearInput')
 
 clearButton.addEventListener('click', function() {
-    distanceInputElement.value = null;
-    paceInputElement.value = '00:00:0';
-    timeInputElement.value = '00:00:0';
+    distanceInput.value = null;
+    paceInput.value = '00:00:0';
+    timeInput.value = '00:00:0';
     distanceEvent.value = 'default';
     if (menu.lastChild === resultsSection) {
         menu.removeChild(resultsSection);

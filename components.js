@@ -85,12 +85,12 @@ distanceEvent.appendChild(fiveKEvent);
 distanceEvent.appendChild(fifteenHundredEvent);
 distanceEvent.appendChild(eightHundredEvent);
 
-let distanceInputElement = document.createElement('input')
-distanceInputElement.id = 'distanceInput';
-distanceInputElement.className = 'inputSpace';
-distanceInputElement.type = 'text';
+let distanceInput = document.createElement('input')
+distanceInput.id = 'distanceInput';
+distanceInput.className = 'inputSpace';
+distanceInput.type = 'text';
 
-distanceInputSection.appendChild(distanceInputElement);
+distanceInputSection.appendChild(distanceInput);
 distanceInputSection.appendChild(distanceMeasurement);
 distanceInputSection.appendChild(distanceEvent);
 
@@ -116,15 +116,15 @@ paceKilometersOption.value = 'perKilometer';
 paceKilometersOption.innerHTML = 'Per Kilometer';
 paceMeasurement.appendChild(paceMilesOption);
 paceMeasurement.appendChild(paceKilometersOption);
-let paceInputElement = document.createElement('input')
-paceInputElement.id = 'paceInput';
-paceInputElement.className = 'inputSpace';
-paceInputElement.type = 'text';
-paceInputElement.value = '00:00:0';
+let paceInput = document.createElement('input')
+paceInput.id = 'paceInput';
+paceInput.className = 'inputSpace';
+paceInput.type = 'text';
+paceInput.value = '00:00:0';
 let paceFormat = document.createElement('span')
 paceFormat.innerHTML = 'hh:mm:ss'
 
-paceInputSection.appendChild(paceInputElement);
+paceInputSection.appendChild(paceInput);
 paceInputSection.appendChild(paceMeasurement);
 paceInputSection.appendChild(paceFormat);
 
@@ -139,15 +139,15 @@ timeHeader.innerHTML = 'Time';
 timeHeader.className = 'inputHeader';
 let timeInputSection = document.createElement('div')
 timeInputSection.className = 'inputSection'
-let timeInputElement = document.createElement('input')
-timeInputElement.id = 'timeInput';
-timeInputElement.className='inputSpace';
-timeInputElement.type = 'text';
-timeInputElement.value = '00:00:0';
+let timeInput = document.createElement('input')
+timeInput.id = 'timeInput';
+timeInput.className='inputSpace';
+timeInput.type = 'text';
+timeInput.value = '00:00:0';
 let timeFormat = document.createElement('span')
 timeFormat.innerHTML = 'hh:mm:ss'
 
-timeInputSection.appendChild(timeInputElement);
+timeInputSection.appendChild(timeInput);
 timeInputSection.appendChild(timeFormat);
 
 timeSection.appendChild(timeHeader);
