@@ -316,10 +316,15 @@ function calculateDistance(time, pace) {
 function verifyTimes(time) {
     let timeSegments = time.split(":")
     for (let i=0;i<timeSegments.length;i++){
-        if (typeof(Number(timeSegments[i])) === 'number'
+
+        let timeNum = Number(timeSegments[i]);
+        if (typeof(timeNum) === 'number'
             && !isNaN(Number(timeSegments[i]))) {
         } else {
             return false;
+        }
+        if (timeNum <= 0) {
+            return false
         }
     } 
     return true;
