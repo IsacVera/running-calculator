@@ -313,6 +313,18 @@ function calculateDistance(time, pace) {
 }
 
 
+function verifyDistance(distance) {
+    let distanceNum = Number(distance); //turns null into 0
+    if (isNaN(distanceNum)) {
+        return false;
+    }      
+    if (distanceNum <= 0) {
+        return false;
+    }
+    return true;
+}
+
+
 function verifyTimes(time) {
     let timeSegments = time.split(":")
     for (let i=0;i<timeSegments.length;i++){
@@ -325,14 +337,16 @@ function verifyTimes(time) {
     if (seconds <= 0) {
         return false;
     }
-
     return true;
 }
 
 
 function verifyInputs(inputs) {
     if (calculatorSetting === 'pace') {
-
+        if (!verifyTimes(inputs.timeInput) || !verifyDistance(inputs.distanceInput)) {
+            console.log('false');
+            return false;
+        }
     } else if (calculatorSetting === 'distance') {
         if (!verifyTimes(inputs.timeInput) || !verifyTimes(inputs.paceInput)) {
             console.log('false');
