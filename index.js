@@ -316,23 +316,23 @@ function calculateDistance(time, pace) {
 function verifyTimes(time) {
     let timeSegments = time.split(":")
     for (let i=0;i<timeSegments.length;i++){
-
         let timeNum = Number(timeSegments[i]);
-        if (typeof(timeNum) === 'number'
-            && !isNaN(Number(timeSegments[i]))) {
-        } else {
+        if (isNaN(timeNum)) {
             return false;
         }
-        if (timeNum <= 0) {
-            return false
-        }
     } 
+    seconds = timeToSeconds(time);
+    if (seconds <= 0) {
+        return false;
+    }
+
     return true;
 }
 
 
 function verifyInputs(inputs) {
     if (calculatorSetting === 'pace') {
+
     } else if (calculatorSetting === 'distance') {
         if (!verifyTimes(inputs.timeInput) || !verifyTimes(inputs.paceInput)) {
             console.log('false');
